@@ -1,0 +1,1183 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaby Portafolio - Neón Rosadito & Level Devil</title>
+  <style>
+    /* ==========================================
+       ESTILO GENERAL CON FONDO ROSADITO, MARIPOSAS Y PUNTITOS
+       ========================================== */
+
+    body {
+      background: linear-gradient(180deg, #ffa6c9 0%, #ffb6c1 30%, #ffc0cb 70%, #ffe4e1 100%);
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333333;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* PUNTITOS ROSADOS FLOTANTES DE FONDO */
+    .puntito {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background-color: #ff007f;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+      box-shadow: 0 0 8px #ff66ab, 0 0 12px #ff007f;
+      animation: flotarPunto 8s infinite linear;
+    }
+
+    .p1 { top: 90%; left: 10%; animation-duration: 7s; animation-delay: 0s; }
+    .p2 { top: 95%; left: 25%; animation-duration: 9s; animation-delay: 2s; width: 12px; height: 12px; }
+    .p3 { top: 85%; left: 45%; animation-duration: 6s; animation-delay: 1s; }
+    .p4 { top: 90%; left: 65%; animation-duration: 10s; animation-delay: 4s; width: 10px; height: 10px; }
+    .p5 { top: 95%; left: 80%; animation-duration: 8s; animation-delay: 3s; }
+    .p6 { top: 88%; left: 92%; animation-duration: 7.5s; animation-delay: 1.5s; }
+
+    @keyframes flotarPunto {
+      0% { transform: translateY(0) scale(1); opacity: 0.2; }
+      50% { opacity: 0.8; transform: translateY(-50vh) scale(1.3); }
+      100% { transform: translateY(-100vh) scale(0.8); opacity: 0; }
+    }
+
+    /* MARIPOSAS ANIMADAS DE FONDO (MÁS MARIPOSAS) */
+    .mariposa {
+      position: fixed;
+      font-size: 28px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+      animation: volar 12s linear infinite;
+      filter: drop-shadow(0 0 10px #ff1493);
+    }
+
+    .m1 { top: 5%; left: -10%; animation-duration: 13s; animation-delay: 0s; }
+    .m2 { top: 25%; left: -10%; animation-duration: 10s; animation-delay: 2s; font-size: 34px; }
+    .m3 { top: 45%; left: -10%; animation-duration: 15s; animation-delay: 1s; font-size: 22px; }
+    .m4 { top: 65%; left: -10%; animation-duration: 11s; animation-delay: 4s; font-size: 30px; }
+    .m5 { top: 80%; left: -10%; animation-duration: 14s; animation-delay: 6s; font-size: 26px; }
+    .m6 { top: 15%; left: -10%; animation-duration: 9s; animation-delay: 5s; font-size: 38px; }
+    .m7 { top: 55%; left: -10%; animation-duration: 12s; animation-delay: 3s; font-size: 20px; }
+    .m8 { top: 35%; left: -10%; animation-duration: 16s; animation-delay: 7s; font-size: 32px; }
+
+    @keyframes volar {
+      0% { transform: translateX(0vw) translateY(0px) rotate(0deg); }
+      25% { transform: translateX(30vw) translateY(-25px) rotate(15deg); }
+      50% { transform: translateX(60vw) translateY(20px) rotate(-10deg); }
+      75% { transform: translateX(85vw) translateY(-20px) rotate(20deg); }
+      100% { transform: translateX(115vw) translateY(0px) rotate(0deg); }
+    }
+
+    /* CONTENEDORES Y PORTAFOLIO */
+    .titulo {
+      color: #ffffff;
+      text-align: center;
+      margin: 10px 0;
+      text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #ff007f,
+        0 0 20px #ff007f;
+    }
+
+    .contenedor {
+      display: flex;
+      justify-content: center;
+      border: 3px solid #ff007f;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.55);
+      padding: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px #ff007f, inset 0 0 10px rgba(255, 0, 127, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .conten-principal {
+      border: 4px solid #ff007f;
+      border-radius: 16px;
+      background-color: rgba(255, 255, 255, 0.65);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      justify-content: center;
+      align-items: flex-start;
+      box-shadow: 0 0 20px #ff007f, inset 0 0 15px rgba(255, 0, 127, 0.2);
+      backdrop-filter: blur(8px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .conten-imagen {
+      border: 3px solid #ff007f;
+      border-radius: 16px;
+      height: 250px;
+      width: 200px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.7);
+    }
+
+    .conten-imagen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .conten-parrafo {
+      border: 3px solid #ff007f;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 950px;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: inset 0 0 10px rgba(255, 0, 127, 0.2);
+    }
+
+    .p-nombre {
+      color: #ff007f;
+      font-size: 38px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+    }
+
+    .parrafo {
+      color: #333333;
+      text-align: center;
+      margin: 15px 20px;
+      line-height: 1.6;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* BOTONES */
+    .botones-1 {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .boton_1 {
+      padding: 12px 24px;
+      color: #ff007f;
+      background-color: #ffffff;
+      border: 3px solid #ff007f;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .boton_1:hover {
+      background-color: #ff007f;
+      color: #ffffff;
+      box-shadow: 0 0 25px #ff007f, 0 0 35px #ff66ab;
+      transform: translateY(-2px);
+    }
+
+    .boton_1:active, .boton-brillo-activo {
+      background-color: #ffffff !important;
+      color: #ff007f !important;
+      border-color: #ff66ab !important;
+      box-shadow: 
+        0 0 20px #ffffff,
+        0 0 40px #ff007f,
+        0 0 60px #ff66ab !important;
+      transform: scale(0.96);
+    }
+
+    /* HORARIO */
+    .horario {
+      color: #333333;
+      text-align: center;
+      border: 3px solid #ff007f;
+      border-radius: 12px;
+      margin-top: 25px;
+      padding: 15px;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-x: auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
+    }
+
+    .h-titulo {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #ff007f;
+      text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+    }
+
+    .tabla {
+      width: 100%;
+      border-collapse: collapse;
+      box-sizing: border-box;
+      table-layout: fixed;
+    }
+
+    .tabla th {
+      background-color: #ff007f;
+      color: #ffffff;
+      padding: 8px 4px;
+      font-size: 13px;
+      border: 1px solid #ff66ab;
+      text-shadow: 0 0 5px #fff;
+    }
+
+    .tabla td {
+      border: 1px solid #ff007f;
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #333333;
+      padding: 6px 2px;
+      text-align: center;
+      font-size: 13px;
+      word-wrap: break-word;
+      font-weight: bold;
+    }
+
+    .fila-descanso {
+      background-color: #f693bc !important;
+      color: #ffffff !important;
+      text-shadow: 0 0 5px #ff007f;
+    }
+
+    .modo-hacker th {
+      background-color: #ba55d3 !important;
+      color: #fff !important;
+    }
+
+    .modo-hacker td {
+      background-color: #f0e68c !important;
+      color: #000 !important;
+    }
+
+    /* MODAL DE REGISTRO */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.activo {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .seccion-registro {
+      background-color: #ffffff;
+      border: 4px solid #ff007f;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 25px #ff007f, 0 0 50px rgba(255, 0, 127, 0.6);
+      animation: letreroNeon 1.8s infinite alternate;
+      position: relative;
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.activo .seccion-registro {
+      transform: scale(1);
+    }
+
+    .btn-cerrar-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      color: #ff007f;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .formulario-registro {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .grupo-campo {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .grupo-campo label {
+      margin-bottom: 5px;
+      color: #ff007f;
+      font-weight: bold;
+    }
+
+    .grupo-campo input, .grupo-campo textarea, .grupo-campo select {
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid #ff007f;
+      background-color: #ffffff;
+      color: #333333;
+      outline: none;
+      font-family: inherit;
+      box-shadow: 0 0 8px rgba(255, 0, 127, 0.2);
+      font-weight: bold;
+    }
+
+    .btn-enviar-registro {
+      background-color: #ffffff;
+      color: #ff007f;
+      border: 3px solid #ff007f;
+      padding: 12px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+      transition: all 0.2s ease;
+    }
+
+    .btn-enviar-registro:hover {
+      background-color: #ff007f;
+      color: #ffffff;
+      box-shadow: 0 0 25px #ff007f;
+    }
+
+    /* MENÚ Y MÓDULOS */
+    .seccion-menu-rosado, .caja-modulo {
+      border: 3px solid #ff007f;
+      background-color: rgba(255, 255, 255, 0.9);
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+      text-align: center;
+      position: relative;
+    }
+
+    .seccion-menu-rosado h2, .caja-modulo h2 {
+      color: #ff007f;
+      margin-top: 10px;
+      font-size: 26px;
+      text-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+    }
+
+    .btn-regresar {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: #ffffff;
+      border: 2px solid #ff007f;
+      color: #ff007f;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+    }
+
+    .grid-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .btn-menu-item {
+      padding: 15px;
+      color: #ff007f;
+      background: #ffffff;
+      border: 3px solid #ff007f;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-menu-item:hover {
+      background-color: #ff007f;
+      color: #ffffff;
+      box-shadow: 0 0 15px #ff007f;
+    }
+
+    /* ESTILOS DE LEVEL DEVIL */
+    #canvas-ld {
+      background-color: #2b1d2d;
+      border: 3px solid #ff007f;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+      margin: 10px auto;
+      display: block;
+    }
+
+    .controles-ld {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .btn-control-ld {
+      background: #ffffff;
+      border: 2px solid #ff007f;
+      color: #ff007f;
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(255, 0, 127, 0.3);
+      user-select: none;
+    }
+
+    .btn-control-ld:active {
+      background-color: #ff007f;
+      color: #ffffff;
+    }
+
+    /* Diario y Tareas */
+    .entrada-diario {
+      border: 2px solid #ff007f;
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      text-align: left;
+      color: #333333;
+      font-weight: bold;
+    }
+
+    .lista-tareas-ul { list-style: none; padding: 0; }
+    .lista-tareas-ul li {
+      background: #ffffff;
+      border: 2px solid #ff007f;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #333333;
+      font-weight: bold;
+    }
+    .completada { text-decoration: line-through; opacity: 0.6; }
+  </style>
+</head>
+<body>
+
+  <div class="puntito p1"></div>
+  <div class="puntito p2"></div>
+  <div class="puntito p3"></div>
+  <div class="puntito p4"></div>
+  <div class="puntito p5"></div>
+  <div class="puntito p6"></div>
+
+  <div class="mariposa m1">🦋</div>
+  <div class="mariposa m2">🦋</div>
+  <div class="mariposa m3">🦋</div>
+  <div class="mariposa m4">🦋</div>
+  <div class="mariposa m5">🦋</div>
+  <div class="mariposa m6">🦋</div>
+  <div class="mariposa m7">🦋</div>
+  <div class="mariposa m8">🦋</div>
+
+  <header>
+    <div class="contenedor">
+      <h1 class="titulo">Gaby Portafolio</h1>
+    </div>
+  </header>
+
+  <main class="conten-principal">
+    <div class="conten-imagen">
+      <img src="imagenes/gaby.jpg" alt="Foto de Gaby">
+    </div>
+
+    <div class="conten-parrafo">
+      <h1 class="p-nombre">Gaby Alvarado</h1>
+      <p class="parrafo">
+        Hola, mi nombre es Gabriela Alvarado Arévalo, soy estudiante, tengo 14 años, me gusta mucho el piano. Mi color favorito es el rosado y mi mejor amiga es Camila.
+      </p>
+
+      <div class="botones-1">
+        <button class="boton_1" id="btn-toggle">Mostrar Horario</button>
+        <button class="boton_1" id="btn-color">Modo Hacker</button>
+        <button class="boton_1" id="btn-registro">Registro</button>
+      </div>
+
+      <div class="horario" id="horario">
+        <h1 class="h-titulo">Horario Extendido</h1>
+        <table class="tabla" id="tabla-clases">
+          <tr>
+            <th>Horario 9c</th>
+            <th>Día 1</th>
+            <th>Día 2</th>
+            <th>Día 3</th>
+            <th>Día 4</th>
+            <th>Día 5</th>
+            <th>Día 6</th>
+            <th>Día 7</th>
+          </tr>
+          <tr>
+            <td>6:00</td>
+            <td>Dirección</td>
+            <td>Dirección</td>
+            <td>Dirección</td>
+            <td>Dirección</td>
+            <td>Dirección</td>
+            <td>Dirección</td>
+            <td>Dirección</td>
+          </tr>
+          <tr>
+            <td>6:50</td>
+            <td>Español</td>
+            <td>Sociales</td>
+            <td>Math</td>
+            <td>Filosofía</td>
+            <td>Dibujo</td>
+            <td>Math</td>
+            <td>Sociales</td>
+          </tr>
+          <tr>
+            <td>7:45</td>
+            <td>Biología</td>
+            <td>Francés</td>
+            <td>Español</td>
+            <td>Francés</td>
+            <td>Skills</td>
+            <td>Edu Física</td>
+            <td>Inglés</td>
+          </tr>
+          <tr class="fila-descanso">
+            <td>8:40</td>
+            <td colspan="7">DESCANSO 1</td>
+          </tr>
+          <tr>
+            <td>9:35</td>
+            <td>Skills</td>
+            <td>Math</td>
+            <td>Inglés</td>
+            <td>Inglés</td>
+            <td>Sociales</td>
+            <td>Biología</td>
+            <td>Inglés</td>
+          </tr>
+          <tr>
+            <td>10:30</td>
+            <td>Francés</td>
+            <td>Inform</td>
+            <td>PILEO</td>
+            <td>Math</td>
+            <td>Math</td>
+            <td>Física</td>
+            <td>Biología</td>
+          </tr>
+          <tr class="fila-descanso">
+            <td>11:25</td>
+            <td colspan="7">ALMUERZO / DESCANSO 2</td>
+          </tr>
+          <tr>
+            <td>12:20</td>
+            <td>Math</td>
+            <td>Edu Física</td>
+            <td>Infor</td>
+            <td>Ética</td>
+            <td>Español</td>
+            <td>Sociales</td>
+            <td>Química</td>
+          </tr>
+          <tr>
+            <td>1:15</td>
+            <td>Cátedra</td>
+            <td>Español</td>
+            <td>Danzas</td>
+            <td>Biología</td>
+            <td>Inglés</td>
+            <td>Sociales</td>
+            <td>Español</td>
+          </tr>
+          <tr>
+            <td>2:10</td>
+            <td>Piano / Música</td>
+            <td>Refuerzo Math</td>
+            <td>Robótica</td>
+            <td>Lectura</td>
+            <td>Arte</td>
+            <td>Piano / Música</td>
+            <td>Taller Creativo</td>
+          </tr>
+          <tr>
+            <td>3:00</td>
+            <td>Salida</td>
+            <td>Salida</td>
+            <td>Salida</td>
+            <td>Salida</td>
+            <td>Salida</td>
+            <td>Salida</td>
+            <td>Salida</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="seccion-menu-rosado" id="seccion-menu" style="display: none;">
+        <button class="btn-regresar" onclick="volverAlInicio()" title="Regresar al inicio">←</button>
+        <h2 id="saludo-usuario">¡Bienvenida! ✨</h2>
+        <p style="color: #ff007f; font-size: 15px; font-weight: bold;">Selecciona una opción para continuar:</p>
+        
+        <div class="grid-menu">
+          <button class="btn-menu-item" onclick="abrirModulo('modulo-juego')">😈 Level Devil (5 Nivel)</button>
+          <button class="btn-menu-item" onclick="abrirModulo('modulo-diario')">📖 Diario</button>
+          <button class="btn-menu-item" onclick="abrirModulo('modulo-tareas')">✅ Lista de Tareas</button>
+          <button class="btn-menu-item" onclick="abrirModulo('modulo-quiz')">🧩 Quiz Piano</button>
+        </div>
+      </div>
+
+      <div class="caja-modulo" id="modulo-juego" style="display: none;">
+        <button class="btn-regresar" onclick="volverAlMenu()">←</button>
+        <h2>😈 Level Devil (Troll Edition) 🚪</h2>
+        <p style="color: #ff007f; font-weight: bold;">Nivel: <span id="ld-nivel">1</span> / 5 | Muertes: <span id="ld-muertes">0</span></p>
+
+        <canvas id="canvas-ld" width="400" height="250"></canvas>
+
+        <div class="controles-ld">
+          <button class="btn-control-ld" id="btn-izq">◀</button>
+          <button class="btn-control-ld" id="btn-salto">▲ (Salto)</button>
+          <button class="btn-control-ld" id="btn-der">▶</button>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">Tip: ¡Calcula bien tus saltos para esquivar las trampas troll!</p>
+      </div>
+
+      <div class="caja-modulo" id="modulo-diario" style="display: none;">
+        <button class="btn-regresar" onclick="volverAlMenu()">←</button>
+        <h2>📖 Diario Personal</h2>
+        <form id="form-diario" class="formulario-registro" style="max-width: 100%;">
+          <div class="grupo-campo">
+            <label for="diario-titulo">Título:</label>
+            <input type="text" id="diario-titulo" placeholder="Título de la nota" required>
+          </div>
+
+          <div class="grupo-campo">
+            <label for="diario-fuente">Tipo de letra:</label>
+            <select id="diario-fuente" onchange="cambiarTipoFuenteDiario()">
+              <option value="'Segoe UI', sans-serif">Segoe UI (Predeterminada)</option>
+              <option value="'Comic Sans MS', cursive">Comic Sans (Divertida)</option>
+              <option value="'Georgia', serif">Georgia (Elegante)</option>
+              <option value="'Courier New', monospace">Courier New (Máquina de escribir)</option>
+              <option value="'Trebuchet MS', sans-serif">Trebuchet MS (Moderna)</option>
+            </select>
+          </div>
+
+          <div class="grupo-campo">
+            <label for="diario-texto">Entrada del diario:</label>
+            <textarea id="diario-texto" rows="4" placeholder="Escribe lo que sientes hoy..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-enviar-registro">Guardar Nota</button>
+        </form>
+
+        <div id="lista-diario" style="margin-top: 20px;"></div>
+      </div>
+
+      <div class="caja-modulo" id="modulo-tareas" style="display: none;">
+        <button class="btn-regresar" onclick="volverAlMenu()">←</button>
+        <h2>✅ Lista de Tareas</h2>
+        <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px;">
+          <input type="text" id="nueva-tarea" placeholder="Agregar nueva tarea..." style="padding: 10px; border-radius: 8px; border: 2.5px solid #ff007f; background-color: #ffffff; color: #333; width: 70%; font-weight: bold;">
+          <button class="boton_1" onclick="agregarTarea()">Agregar</button>
+        </div>
+        <ul id="lista-tareas-ul" class="lista-tareas-ul"></ul>
+      </div>
+
+      <div class="caja-modulo" id="modulo-quiz" style="display: none;">
+        <button class="btn-regresar" onclick="volverAlMenu()">←</button>
+        <h2>🧩 Quiz de Piano</h2>
+        <p style="color: #333; font-weight: bold;">¿Cuántas teclas tiene un piano acústico estándar?</p>
+        <button class="boton_1" onclick="responderQuiz(false)">66 teclas</button><br><br>
+        <button class="boton_1" onclick="responderQuiz(true)">88 teclas</button><br><br>
+        <button class="boton_1" onclick="responderQuiz(false)">100 teclas</button>
+        <p id="res-quiz" style="font-weight: bold; margin-top: 15px;"></p>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal-registro">
+    <div class="seccion-registro">
+      <button class="btn-cerrar-modal" id="btn-cerrar-registro">✕</button>
+      <h2>Registro</h2>
+      <form class="formulario-registro" id="form-registro">
+        <div class="grupo-campo">
+          <label for="nombre">Nombre completo:</label>
+          <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+        <div class="grupo-campo">
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+        </div>
+        <div class="grupo-campo">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" placeholder="Crea una contraseña" required>
+        </div>
+        <button type="submit" class="btn-enviar-registro">Registrarse</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const horario = document.getElementById('horario');
+    const modalRegistro = document.getElementById('modal-registro');
+    const btnCerrarRegistro = document.getElementById('btn-cerrar-registro');
+    const seccionMenu = document.getElementById('seccion-menu');
+    
+    const btnToggle = document.getElementById('btn-toggle');
+    const botonColor = document.getElementById('btn-color');
+    const btnRegistro = document.getElementById('btn-registro');
+    const miTabla = document.getElementById('tabla-clases');
+    const formRegistro = document.getElementById('form-registro');
+    const saludoUsuario = document.getElementById('saludo-usuario');
+
+    const modulos = ['modulo-juego', 'modulo-diario', 'modulo-tareas', 'modulo-quiz'];
+
+    horario.style.display = 'none';
+
+    function hacerBrillar(boton) {
+      boton.classList.add('boton-brillo-activo');
+      setTimeout(() => {
+        boton.classList.remove('boton-brillo-activo');
+      }, 300);
+    }
+
+    btnToggle.addEventListener('click', (e) => {
+      hacerBrillar(e.target);
+      ocultarModulos();
+      horario.style.display = horario.style.display === 'none' ? 'block' : 'none';
+    });
+
+    botonColor.addEventListener('click', (e) => {
+      hacerBrillar(e.target);
+      miTabla.classList.toggle('modo-hacker');
+    });
+
+    btnRegistro.addEventListener('click', (e) => {
+      hacerBrillar(e.target);
+      modalRegistro.classList.add('activo');
+    });
+
+    btnCerrarRegistro.addEventListener('click', () => {
+      modalRegistro.classList.remove('activo');
+    });
+
+    formRegistro.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombreUsuario = document.getElementById('nombre').value.trim();
+      saludoUsuario.innerText = `¡Bienvenida/o, ${nombreUsuario}! ✨`;
+      modalRegistro.classList.remove('activo');
+      ocultarTodo();
+      seccionMenu.style.display = 'block';
+    });
+
+    function volverAlInicio() {
+      ocultarTodo();
+      detenerLevelDevil();
+    }
+
+    function volverAlMenu() {
+      ocultarTodo();
+      seccionMenu.style.display = 'block';
+      detenerLevelDevil();
+    }
+
+    function abrirModulo(idModulo) {
+      ocultarTodo();
+      document.getElementById(idModulo).style.display = 'block';
+      if (idModulo === 'modulo-juego') {
+        iniciarLevelDevil();
+      }
+    }
+
+    function ocultarModulos() {
+      modulos.forEach(mod => {
+        document.getElementById(mod).style.display = 'none';
+      });
+      seccionMenu.style.display = 'none';
+    }
+
+    function ocultarTodo() {
+      horario.style.display = 'none';
+      seccionMenu.style.display = 'none';
+      modulos.forEach(mod => {
+        document.getElementById(mod).style.display = 'none';
+      });
+    }
+
+    /* ==========================================
+       😈 LEVEL DEVIL (SISTEMA CORREGIDO Y CON 5 NIVELES)
+       ========================================== */
+    const cvsLD = document.getElementById('canvas-ld');
+    const ctxLD = cvsLD.getContext('2d');
+
+    let ldLoop = null;
+    let nivelActual = 1;
+    let muertes = 0;
+
+    let jug = {
+      x: 30,
+      y: 180,
+      w: 20,
+      h: 20,
+      vx: 0,
+      vy: 0,
+      enSuelo: false
+    };
+
+    let puerta = { x: 350, y: 170, w: 25, h: 40, activa: true };
+    let puertaFalsa = { x: 350, y: 170, w: 25, h: 40, activa: false };
+
+    let teclas = { izq: false, der: false, salto: false };
+
+    // Objetos troll por nivel
+    let sueloHueco = false;
+    let huecoInicio = 170;
+    let huecoFin = 230;
+    let pinchosTroll = [];
+    let plataformaMovil = { x: 180, y: 180, w: 50, h: 10, visible: false };
+
+    function iniciarLevelDevil() {
+      detenerLevelDevil();
+      reiniciarNivel();
+      ldLoop = requestAnimationFrame(loopLevelDevil);
+    }
+
+    function detenerLevelDevil() {
+      if (ldLoop) {
+        cancelAnimationFrame(ldLoop);
+        ldLoop = null;
+      }
+    }
+
+    function reiniciarNivel() {
+      jug.x = 30;
+      jug.y = 180;
+      jug.vx = 0;
+      jug.vy = 0;
+      sueloHueco = false;
+      plataformaMovil.visible = false;
+      puerta = { x: 350, y: 170, w: 25, h: 40, activa: true };
+      puertaFalsa.activa = false;
+
+      // CONFIGURACIÓN DE LOS 5 NIVELES
+      if (nivelActual === 1) {
+        // Nivel 1: Hueco pequeño que se cae al acercarse, pero SALTABLE con impulso.
+        huecoInicio = 180;
+        huecoFin = 230;
+        pinchosTroll = [];
+      } else if (nivelActual === 2) {
+        // Nivel 2: Pincho aéreo que aparece si saltas muy alto.
+        huecoInicio = 0; huecoFin = 0;
+        pinchosTroll = [{ x: 210, y: 130, w: 25, h: 25, visible: false }];
+      } else if (nivelActual === 3) {
+        // Nivel 3: La puerta retrocede 60px cuando te acercas a x=260, ¡luego se queda quieta!
+        huecoInicio = 0; huecoFin = 0;
+        pinchosTroll = [];
+      } else if (nivelActual === 4) {
+        // Nivel 4: Gran hueco troll en el suelo, pero aparece una plataforma rosa cuando saltas!
+        huecoInicio = 140;
+        huecoFin = 280;
+        sueloHueco = true;
+        plataformaMovil = { x: 185, y: 180, w: 55, h: 10, visible: true };
+        pinchosTroll = [];
+      } else if (nivelActual === 5) {
+        // Nivel 5: La primera puerta es falsa (trampa), la real aparece en la plataforma del medio!
+        huecoInicio = 0; huecoFin = 0;
+        puertaFalsa = { x: 350, y: 170, w: 25, h: 40, activa: true };
+        puerta = { x: 200, y: 110, w: 25, h: 40, activa: false }; // Aparece luego
+        plataformaMovil = { x: 185, y: 150, w: 55, h: 10, visible: true };
+        pinchosTroll = [];
+      }
+
+      document.getElementById('ld-nivel').innerText = nivelActual;
+      document.getElementById('ld-muertes').innerText = muertes;
+    }
+
+    function loopLevelDevil() {
+      actualizarLD();
+      dibujarLD();
+      ldLoop = requestAnimationFrame(loopLevelDevil);
+    }
+
+    function actualizarLD() {
+      // Movimiento
+      if (teclas.izq) jug.vx = -3.2;
+      else if (teclas.der) jug.vx = 3.2;
+      else jug.vx = 0;
+
+      // Salto
+      if (teclas.salto && jug.enSuelo) {
+        jug.vy = -8.5;
+        jug.enSuelo = false;
+        
+        if (nivelActual === 2) {
+          pinchosTroll[0].visible = true; // Pincho trampa
+        }
+      }
+
+      // Gravedad
+      jug.vy += 0.42;
+
+      jug.x += jug.vx;
+      jug.y += jug.vy;
+
+      // Limites laterales
+      if (jug.x < 0) jug.x = 0;
+      if (jug.x > cvsLD.width - jug.w) jug.x = cvsLD.width - jug.w;
+
+      // LÓGICA DE SUELO Y COLISIONES
+      let limiteSuelo = 210;
+
+      // Nivel 1: Caída de suelo troll
+      if (nivelActual === 1 && jug.x > 150) {
+        sueloHueco = true;
+      }
+
+      // Nivel 3: La puerta huye una vez
+      if (nivelActual === 3 && jug.x > 250 && puerta.x === 350) {
+        puerta.x = 290; // Se mueve hacia atrás pero alcanzable
+      }
+
+      // Nivel 5: Tocar puerta falsa
+      if (nivelActual === 5 && puertaFalsa.activa) {
+        if (jug.x < puertaFalsa.x + puertaFalsa.w && jug.x + jug.w > puertaFalsa.x &&
+            jug.y < puertaFalsa.y + puertaFalsa.h && jug.y + jug.h > puertaFalsa.y) {
+          puertaFalsa.activa = false;
+          puerta.activa = true; // Revelar la verdadera puerta en la plataforma!
+        }
+      }
+
+      // Colisión con Suelo Base
+      let sobreHueco = sueloHueco && (jug.x + jug.w > huecoInicio && jug.x < huecoFin);
+
+      if (jug.y + jug.h >= limiteSuelo && !sobreHueco) {
+        jug.y = limiteSuelo - jug.h;
+        jug.vy = 0;
+        jug.enSuelo = true;
+      }
+
+      // Colisión con Plataforma Flotante (Niveles 4 y 5)
+      if (plataformaMovil.visible) {
+        if (jug.vy >= 0 && 
+            jug.x + jug.w > plataformaMovil.x && 
+            jug.x < plataformaMovil.x + plataformaMovil.w &&
+            jug.y + jug.h >= plataformaMovil.y && 
+            jug.y + jug.h <= plataformaMovil.y + 8) {
+          jug.y = plataformaMovil.y - jug.h;
+          jug.vy = 0;
+          jug.enSuelo = true;
+        }
+      }
+
+      // Caída al vacío
+      if (jug.y > cvsLD.height) {
+        morir();
+      }
+
+      // Colisión con pinchos
+      pinchosTroll.forEach(p => {
+        if (p.visible && jug.x < p.x + p.w && jug.x + jug.w > p.x && jug.y < p.y + p.h && jug.y + jug.h > p.y) {
+          morir();
+        }
+      });
+
+      // Pasar de Nivel (Llegar a la puerta activa)
+      if (puerta.activa && jug.x < puerta.x + puerta.w && jug.x + jug.w > puerta.x && jug.y < puerta.y + puerta.h && jug.y + jug.h > puerta.y) {
+        if (nivelActual === 5) {
+          alert("¡FELICIDADES! 🎉 Completaste todos los niveles de Level Devil 🔥");
+          nivelActual = 1;
+        } else {
+          nivelActual++;
+        }
+        reiniciarNivel();
+      }
+    }
+
+    function morir() {
+      muertes++;
+      reiniciarNivel();
+    }
+
+    function dibujarLD() {
+      // Fondo
+      ctxLD.fillStyle = '#2b1d2d';
+      ctxLD.fillRect(0, 0, cvsLD.width, cvsLD.height);
+
+      // Suelo
+      ctxLD.fillStyle = '#ff007f';
+      if (sueloHueco && huecoFin > 0) {
+        ctxLD.fillRect(0, 210, huecoInicio, 40);
+        ctxLD.fillRect(huecoFin, 210, cvsLD.width - huecoFin, 40);
+      } else {
+        ctxLD.fillRect(0, 210, cvsLD.width, 40);
+      }
+
+      // Plataforma Flotante
+      if (plataformaMovil.visible) {
+        ctxLD.fillStyle = '#ff66ab';
+        ctxLD.fillRect(plataformaMovil.x, plataformaMovil.y, plataformaMovil.w, plataformaMovil.h);
+      }
+
+      // Puerta Falsa (Nivel 5)
+      if (puertaFalsa.activa) {
+        ctxLD.fillStyle = '#ff1493';
+        ctxLD.fillRect(puertaFalsa.x, puertaFalsa.y, puertaFalsa.w, puertaFalsa.h);
+        ctxLD.fillStyle = '#2b1d2d';
+        ctxLD.fillRect(puertaFalsa.x + 4, puertaFalsa.y + 4, puertaFalsa.w - 8, puertaFalsa.h - 4);
+      }
+
+      // Puerta Real (Salida)
+      if (puerta.activa) {
+        ctxLD.fillStyle = '#ffb6c1';
+        ctxLD.fillRect(puerta.x, puerta.y, puerta.w, puerta.h);
+        ctxLD.fillStyle = '#2b1d2d';
+        ctxLD.fillRect(puerta.x + 4, puerta.y + 4, puerta.w - 8, puerta.h - 4);
+      }
+
+      // Pinchos / Trampas
+      pinchosTroll.forEach(p => {
+        if (p.visible) {
+          ctxLD.fillStyle = '#ff0055';
+          ctxLD.beginPath();
+          ctxLD.moveTo(p.x, p.y + p.h);
+          ctxLD.lineTo(p.x + p.w / 2, p.y);
+          ctxLD.lineTo(p.x + p.w, p.y + p.h);
+          ctxLD.closePath();
+          ctxLD.fill();
+        }
+      });
+
+      // Muñequito (Jugador)
+      ctxLD.fillStyle = '#ffffff';
+      ctxLD.fillRect(jug.x, jug.y, jug.w, jug.h);
+
+      // Ojos del muñequito
+      ctxLD.fillStyle = '#000000';
+      ctxLD.fillRect(jug.x + 12, jug.y + 4, 3, 5);
+      ctxLD.fillRect(jug.x + 5, jug.y + 4, 3, 5);
+    }
+
+    // Controles teclado
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') teclas.izq = true;
+      if (e.key === 'ArrowRight') teclas.der = true;
+      if (e.key === 'ArrowUp' || e.key === ' ') teclas.salto = true;
+    });
+
+    window.addEventListener('keyup', (e) => {
+      if (e.key === 'ArrowLeft') teclas.izq = false;
+      if (e.key === 'ArrowRight') teclas.der = false;
+      if (e.key === 'ArrowUp' || e.key === ' ') teclas.salto = false;
+    });
+
+    // Controles táctiles / Botones
+    const btnIzq = document.getElementById('btn-izq');
+    const btnDer = document.getElementById('btn-der');
+    const btnSalto = document.getElementById('btn-salto');
+
+    const registrarBoton = (btn, propiedad) => {
+      btn.addEventListener('mousedown', (e) => { e.preventDefault(); teclas[propiedad] = true; });
+      btn.addEventListener('mouseup', (e) => { e.preventDefault(); teclas[propiedad] = false; });
+      btn.addEventListener('touchstart', (e) => { e.preventDefault(); teclas[propiedad] = true; });
+      btn.addEventListener('touchend', (e) => { e.preventDefault(); teclas[propiedad] = false; });
+    };
+
+    registrarBoton(btnIzq, 'izq');
+    registrarBoton(btnDer, 'der');
+    registrarBoton(btnSalto, 'salto');
+
+    /* 📖 DIARIO */
+    function cambiarTipoFuenteDiario() {
+      const fuenteSeleccionada = document.getElementById('diario-fuente').value;
+      document.getElementById('diario-texto').style.fontFamily = fuenteSeleccionada;
+    }
+
+    const formDiario = document.getElementById('form-diario');
+    formDiario.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const titulo = document.getElementById('diario-titulo').value;
+      const texto = document.getElementById('diario-texto').value;
+      const fuenteSeleccionada = document.getElementById('diario-fuente').value;
+      const lista = document.getElementById('lista-diario');
+
+      const div = document.createElement('div');
+      div.className = 'entrada-diario';
+      div.style.fontFamily = fuenteSeleccionada;
+      div.innerHTML = `<strong style="color: #ff007f;">${titulo}</strong><p style="margin: 5px 0; font-family: ${fuenteSeleccionada};">${texto}</p>`;
+      lista.appendChild(div);
+
+      formDiario.reset();
+      cambiarTipoFuenteDiario();
+    });
+
+    /* ✅ TAREAS */
+    function agregarTarea() {
+      const input = document.getElementById('nueva-tarea');
+      if (!input.value.trim()) return;
+      const ul = document.getElementById('lista-tareas-ul');
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span onclick="this.classList.toggle('completada')" style="cursor:pointer;">${input.value}</span>
+        <button onclick="this.parentElement.remove()" style="background:#ff007f; color:white; border:none; border-radius:5px; padding:3px 8px; cursor:pointer;">X</button>
+      `;
+      ul.appendChild(li);
+      input.value = '';
+    }
+
+    /* 🧩 QUIZ */
+    function responderQuiz(esCorrecto) {
+      const res = document.getElementById('res-quiz');
+      if (esCorrecto) {
+        res.style.color = '#28a745';
+        res.innerText = '¡Correcto! 🎉 Un piano estándar tiene 88 teclas.';
+      } else {
+        res.style.color = '#dc3545';
+        res.innerText = 'Inténtalo de nuevo ❌';
+      }
+    }
+  </script>
+</body>
+</html>
