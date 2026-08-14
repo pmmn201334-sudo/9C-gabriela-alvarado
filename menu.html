@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Principal</title>
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+  <div class="puntito p1"></div>
+  <div class="puntito p2"></div>
+  <div class="puntito p3"></div>
+  <div class="puntito p4"></div>
+  <div class="puntito p5"></div>
+  <div class="puntito p6"></div>
+
+  <div class="mariposa m1">🦋</div>
+  <div class="mariposa m2">🦋</div>
+  <div class="mariposa m3">🦋</div>
+  <div class="mariposa m4">🦋</div>
+  <div class="mariposa m5">🦋</div>
+  <div class="mariposa m6">🦋</div>
+  <div class="mariposa m7">🦋</div>
+  <div class="mariposa m8">🦋</div>
+
+  <header>
+    <div class="contenedor">
+      <h1 class="titulo">Gaby Portafolio</h1>
+    </div>
+  </header>
+
+  <main class="pagina">
+
+    <div class="seccion-menu-rosado" id="seccion-menu">
+      <a class="btn-regresar" href="index.html" title="Regresar al inicio">←</a>
+      <h2 id="saludo-usuario">¡Bienvenida! ✨</h2>
+      <p class="texto-ayuda">Selecciona una opción para continuar:</p>
+
+      <div class="grid-menu">
+        <button class="btn-menu-item" onclick="window.location.href='juego.html'">😈 Level Devil (5 Nivel)</button>
+        <button class="btn-menu-item" onclick="abrirSeccion('modulo-diario')">📖 Diario</button>
+        <button class="btn-menu-item" onclick="window.location.href='tareas.html'">✅ Lista de Tareas</button>
+        <button class="btn-menu-item" onclick="abrirSeccion('modulo-quiz')">🧩 Quiz Piano</button>
+      </div>
+    </div>
+
+    <div class="caja-modulo" id="modulo-diario" style="display: none;">
+      <button class="btn-regresar" onclick="volverAlMenu()">←</button>
+      <h2>📖 Diario Personal</h2>
+      <form id="form-diario" class="formulario-registro" style="max-width: 100%;">
+        <div class="grupo-campo">
+          <label for="diario-titulo">Título:</label>
+          <input type="text" id="diario-titulo" placeholder="Título de la nota" required>
+        </div>
+
+        <div class="grupo-campo">
+          <label for="diario-fuente">Tipo de letra:</label>
+          <select id="diario-fuente" onchange="cambiarTipoFuenteDiario()">
+            <option value="'Segoe UI', sans-serif">Segoe UI (Predeterminada)</option>
+            <option value="'Comic Sans MS', cursive">Comic Sans (Divertida)</option>
+            <option value="'Georgia', serif">Georgia (Elegante)</option>
+            <option value="'Courier New', monospace">Courier New (Máquina de escribir)</option>
+            <option value="'Trebuchet MS', sans-serif">Trebuchet MS (Moderna)</option>
+          </select>
+        </div>
+
+        <div class="grupo-campo">
+          <label for="diario-texto">Entrada del diario:</label>
+          <textarea id="diario-texto" rows="4" placeholder="Escribe lo que sientes hoy..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-enviar-registro">Guardar Nota</button>
+      </form>
+
+      <div id="lista-diario" style="margin-top: 20px;"></div>
+    </div>
+
+    <div class="caja-modulo" id="modulo-quiz" style="display: none;">
+      <button class="btn-regresar" onclick="volverAlMenu()">←</button>
+      <h2>🧩 Quiz de Piano</h2>
+      <p style="color: #333; font-weight: bold;">¿Cuántas teclas tiene un piano acústico estándar?</p>
+      <button class="boton_1" onclick="responderQuiz(false)">66 teclas</button><br><br>
+      <button class="boton_1" onclick="responderQuiz(true)">88 teclas</button><br><br>
+      <button class="boton_1" onclick="responderQuiz(false)">100 teclas</button>
+      <p id="res-quiz" style="font-weight: bold; margin-top: 15px;"></p>
+    </div>
+
+  </main>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>
